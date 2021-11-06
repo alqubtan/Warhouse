@@ -1,0 +1,127 @@
+﻿@model IEnumerable<SamaERP.Models.WarReceivedProduct>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container body">
+    <div class="main_container">
+        <div class="right_col" role="main">
+            <div>
+                <div class="x_panel bg-transparent">
+                    <div class="x_content">
+                        <p>
+                            <a class="btn btn-success btn-sm" asp-controller="WarReceivedProducts" asp-action="Create">New Recived Product</a>
+                        </p>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table id="datatable" class="table table-sm table-striped table-bordered dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="datatable_info">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Product Name
+                                            </th>
+                                            <th>
+                                                SN.
+                                            </th>
+                                            <th>
+                                                Barcode
+                                            </th>
+                                            <th>
+                                                Supplier
+                                            </th>
+                                            <th>
+                                                Unit
+                                            </th>
+                                            <th>
+                                                Quantity
+                                            </th>
+                                            <th>
+                                                Branch
+                                            </th>
+                                            <th>
+                                                Warehouse
+                                            </th>
+                                            <th>
+                                                Expire Date
+                                            </th>
+
+                                            <th>
+                                                Recived Date
+                                            </th>
+                                            <th>
+                                                Invoice No.
+                                            </th>
+                                            <th>
+                                                Invoice Date
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.ProductName)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.SNumber)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.ProductBarcode)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.ProductSupplier)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.ProductUnit)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.ProductQty)
+                                                </td>
+                                                
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.BranchName)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.WarehouseName)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.ProductExpireDate)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.RecivedDate)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.InvoiceNumber)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.InvoiceDate)
+                                                </td>
+                                                <td>
+                                                    <a asp-action="Edit" asp-route-id="@item.ID" title="Edit">
+                                                        <i class="glyphicon glyphicon-pencil text-primary"> </i>
+                                                    </a>
+                                                    <a asp-action="Details" asp-route-id="@item.ID" title="Details" class="m-3">
+                                                        <i class="glyphicon glyphicon-info-sign text-info"></i>
+                                                    </a>
+                                                    <a asp-action="Delete" asp-route-id="@item.ID" title="Delete">
+                                                        <i class="glyphicon glyphicon-remove text-danger"></i>
+                                                    </a>
+                                                </td>
+
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

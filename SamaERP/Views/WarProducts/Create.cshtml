@@ -1,0 +1,85 @@
+﻿@model SamaERP.Models.WarProduct
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container body">
+    <div class="main_container">
+        <div class="right_col" role="main">
+            <div>
+                <div class="x_panel bg-transparent">
+                    <div class="x_content">
+                        <h5 class="p-md-2">Add New Product.</h5>
+                        <div class="col-12">
+                            <form asp-action="Create">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                                <div class="form-group input-group-sm">
+                                    <label asp-for="ProductName" class="control-label">Product Name</label>
+                                    <input asp-for="ProductName" class="form-control" />
+                                    <span asp-validation-for="ProductName" class="text-danger">@ViewBag.exist_err</span>
+                                </div>
+                                <div class="form-group input-group-sm">
+                                    <label asp-for="ProductDescription" class="control-label">Product Description</label>
+                                    <input asp-for="ProductDescription" class="form-control" />
+                                    <span asp-validation-for="ProductDescription" class="text-danger"></span>
+                                </div>
+                                <div class="form-group input-group-sm ">
+                                    <label asp-for="ProductType" class="control-label">Product Type</label>
+                                    <select class="form-control bg-transparent" asp-for="ProductType" asp-items="ViewBag.productTypes ?? new List<SelectListItem>();">
+                                        <option value="">Choose product type</option>
+                                    </select>
+                                    <span asp-validation-for="ProductType" class="text-danger"></span>
+                                </div>
+                                <div class="form-group input-group-sm">
+                                    <label asp-for="Prod_MeasureUnit" class="control-label">Measure Unit</label>
+                                    <input asp-for="Prod_MeasureUnit" class="form-control" />
+                                    <span asp-validation-for="Prod_MeasureUnit" class="text-danger"></span>
+                                </div>
+                                <div class="form-group form-check">
+                                    <label class="form-check-label mt-4">
+                                        <input class="form-check-input" asp-for="HasExpireDate" /> Has Expire Date?
+                                    </label>
+                                </div>
+                                <div class="form-group input-group-sm">
+                                    <label asp-for="ProductExpireDate" class="control-label">Expire Date (if exist)</label>
+                                    <input placeholder="Choose Expire Date" autocomplete="off" type="text" asp-for="ProductExpireDate" id="datetimepicker1" />
+                                    <span asp-validation-for="ProductExpireDate" class="text-danger"></span>
+                                </div>
+                                <div class="form-group ">
+                                    <input type="submit" value="Save Product" class="btn btn-primary btn-sm" />
+                                    <a class="btn btn-secondary btn-sm" asp-action="Index">Back to List</a>
+                                </div>
+                            </form>
+                        </div>
+
+
+                        <div>
+                            <a asp-action="Index">Back to List</a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $("#datetimepicker1").datepicker({
+                isRTL: false,
+                format: 'yyyy-mm-dd',
+                autoclose: true,
+                language: 'en',
+
+            });
+        });
+
+    </script>
+}

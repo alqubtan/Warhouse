@@ -1,0 +1,80 @@
+﻿@model SamaERP.Models.WarSupplier
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container body">
+    <div class="main_container">
+        <div class="right_col" role="main">
+            <div>
+                <div class="x_panel bg-transparent">
+                    <div class="x_content">
+                        <div>
+                            <h4>@Html.DisplayFor(model => model.SupplierName)</h4>
+                            <hr />
+                            <dl class="row">
+                                <dt class="col-sm-2">
+                                    Supplier Name
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.SupplierName)
+                                </dd>
+                                <dt class="col-sm-2">
+                                    Supplier Type
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.SupplierType)
+                                </dd>
+                                <dt class="col-sm-2">
+                                    Supplier Description
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.SupplierDescription)
+                                </dd>
+                                <dt class="col-sm-2">
+                                    Supplier PhoneNo
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.SupplierPhoneNo)
+                                </dd>
+                                <dt class="col-sm-2">
+                                    Supplier Email
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.SupplierEmail)
+                                </dd>
+                                <dt class="col-sm-2">
+                                    Supplier Address
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.SupplierAddress)
+                                </dd>
+                                <dt class="col-sm-2">
+                                    Supplier Country
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.SupplierCountry)
+                                </dd>
+                                <dt class="col-sm-2">
+                                    Supplier City
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.SupplierCity)
+                                </dd>
+                            </dl>
+                        </div>
+                        <div>
+                            <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+                            <a asp-action="Index">Back to List</a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

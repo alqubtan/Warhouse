@@ -1,0 +1,70 @@
+﻿@model SamaERP.Models.WarProduct
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container body">
+    <div class="main_container">
+        <div class="right_col" role="main">
+            <div>
+                <div class="x_panel bg-transparent">
+                    <div class="x_content">
+                        <h4>@Html.DisplayFor(model => model.ProductName)</h4>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-4">
+                                <form asp-action="Edit">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <input type="hidden" asp-for="Id" />
+                                    <div class="form-group">
+                                        <label asp-for="ProductName" class="control-label">Product Name</label>
+                                        <input asp-for="ProductName" class="form-control" />
+                                        <span asp-validation-for="ProductName" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="ProductDescription" class="control-label">Description</label>
+                                        <input asp-for="ProductDescription" class="form-control" />
+                                        <span asp-validation-for="ProductDescription" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="ProductType" class="control-label">Product Type</label>
+                                        <input asp-for="ProductType" class="form-control" />
+                                        <span asp-validation-for="ProductType" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Prod_MeasureUnit" class="control-label">Measure Unit</label>
+                                        <input asp-for="Prod_MeasureUnit" class="form-control" />
+                                        <span asp-validation-for="Prod_MeasureUnit" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" asp-for="HasExpireDate" /> Has Expire Date?
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="ProductExpireDate" class="control-label">Expire Date</label>
+                                        <input asp-for="ProductExpireDate" class="form-control" />
+                                        <span asp-validation-for="ProductExpireDate" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="Save" class="btn btn-primary" />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div>
+                            <a asp-action="Index">Back to List</a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+

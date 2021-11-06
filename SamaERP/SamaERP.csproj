@@ -1,0 +1,112 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-SamaERP-C4BC43B4-F2F6-4527-AF42-1FCBF814DB61</UserSecretsId>
+    <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\00000000000000_CreateIdentitySchema.cs" />
+    <Compile Remove="Data\Migrations\00000000000000_CreateIdentitySchema.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211025090456_branchmigration.cs" />
+    <Compile Remove="Data\Migrations\20211025090456_branchmigration.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211025091516_branchmigration2.cs" />
+    <Compile Remove="Data\Migrations\20211025091516_branchmigration2.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211025103021_changedb.cs" />
+    <Compile Remove="Data\Migrations\20211025103021_changedb.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211025105359_changedb3.cs" />
+    <Compile Remove="Data\Migrations\20211025105359_changedb3.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211026084716_warehouses.cs" />
+    <Compile Remove="Data\Migrations\20211026084716_warehouses.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211026090536_warehousescontroller.cs" />
+    <Compile Remove="Data\Migrations\20211026090536_warehousescontroller.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211026112038_suppliermodel.cs" />
+    <Compile Remove="Data\Migrations\20211026112038_suppliermodel.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211026112654_addsuppliersmodel.cs" />
+    <Compile Remove="Data\Migrations\20211026112654_addsuppliersmodel.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211026112708_addsupplierscontroller.cs" />
+    <Compile Remove="Data\Migrations\20211026112708_addsupplierscontroller.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211027094048_customermodel.cs" />
+    <Compile Remove="Data\Migrations\20211027094048_customermodel.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211028062725_productsmodel.cs" />
+    <Compile Remove="Data\Migrations\20211028062725_productsmodel.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211028070300_productcontroller2.cs" />
+    <Compile Remove="Data\Migrations\20211028070300_productcontroller2.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211028071956_formatdate.cs" />
+    <Compile Remove="Data\Migrations\20211028071956_formatdate.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211028072436_formatdate2.cs" />
+    <Compile Remove="Data\Migrations\20211028072436_formatdate2.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211028072812_formatdate3.cs" />
+    <Compile Remove="Data\Migrations\20211028072812_formatdate3.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211028073055_formatdate4.cs" />
+    <Compile Remove="Data\Migrations\20211028073055_formatdate4.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211028073335_formatdate6.cs" />
+    <Compile Remove="Data\Migrations\20211028073335_formatdate6.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211028075128_formatdate7.cs" />
+    <Compile Remove="Data\Migrations\20211028075128_formatdate7.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211028075900_formatdate8.cs" />
+    <Compile Remove="Data\Migrations\20211028075900_formatdate8.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211028081059_redfsdkf.cs" />
+    <Compile Remove="Data\Migrations\20211028081059_redfsdkf.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211028083811_dhfjd.cs" />
+    <Compile Remove="Data\Migrations\20211028083811_dhfjd.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211028084532_dhfjdd.cs" />
+    <Compile Remove="Data\Migrations\20211028084532_dhfjdd.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211028091314_finalproduct.cs" />
+    <Compile Remove="Data\Migrations\20211028091314_finalproduct.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211030062709_recivedproductcontroller.cs" />
+    <Compile Remove="Data\Migrations\20211030062709_recivedproductcontroller.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211031115154_updatewarbranch.cs" />
+    <Compile Remove="Data\Migrations\20211031115154_updatewarbranch.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211031122647_addwarehousebtranch.cs" />
+    <Compile Remove="Data\Migrations\20211031122647_addwarehousebtranch.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211102062501_customertype.cs" />
+    <Compile Remove="Data\Migrations\20211102062501_customertype.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211102063530_customertypedescription.cs" />
+    <Compile Remove="Data\Migrations\20211102063530_customertypedescription.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211102083235_addproductType.cs" />
+    <Compile Remove="Data\Migrations\20211102083235_addproductType.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211102083621_addprodtypecontroller.cs" />
+    <Compile Remove="Data\Migrations\20211102083621_addprodtypecontroller.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211102122050_validatemodels.cs" />
+    <Compile Remove="Data\Migrations\20211102122050_validatemodels.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211103111033_out.cs" />
+    <Compile Remove="Data\Migrations\20211103111033_out.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211103111633_outupdate.cs" />
+    <Compile Remove="Data\Migrations\20211103111633_outupdate.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211104101703_activeornot.cs" />
+    <Compile Remove="Data\Migrations\20211104101703_activeornot.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211104102225_finalrje.cs" />
+    <Compile Remove="Data\Migrations\20211104102225_finalrje.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211104102849_removerecandtotal.cs" />
+    <Compile Remove="Data\Migrations\20211104102849_removerecandtotal.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211104103107_IkjgnoreChanges.cs" />
+    <Compile Remove="Data\Migrations\20211104103107_IkjgnoreChanges.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211104104214_removetable.cs" />
+    <Compile Remove="Data\Migrations\20211104104214_removetable.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211104104327_removdb.cs" />
+    <Compile Remove="Data\Migrations\20211104104327_removdb.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211104104533_removdbe.cs" />
+    <Compile Remove="Data\Migrations\20211104104533_removdbe.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211104105348_removedeliverds.cs" />
+    <Compile Remove="Data\Migrations\20211104105348_removedeliverds.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211104110923_initalCreate.cs" />
+    <Compile Remove="Data\Migrations\20211104110923_initalCreate.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.20" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.20" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.20" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.20" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.20" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.20" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\Migrations\" />
+  </ItemGroup>
+
+</Project>

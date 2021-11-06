@@ -1,0 +1,55 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Stock Balance";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container body">
+    <div class="main_container">
+        <div class="right_col" role="main">
+            <div>
+                <div class="x_panel bg-transparent">
+                    <div class="x_panel bg-transparent text-black">
+                        <h4>Welcome to stock balance</h4>
+                    </div>
+                    <div class="x_content">
+                        <div class="container-fluid border-dark p-5">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="col-6">
+                                        <h2>In Stock</h2>
+                                        @foreach (var prod in ViewBag.inProducts)
+                                        {
+                                            <p>Product Name :  @prod.ProductName </p>
+                                            <p>Product Qty :  @prod.ProductQty </p>
+                                            <hr />
+                                        }
+                                    </div>
+                                    <div class="col-6">
+                                        <h2>Out Stock</h2>
+                                        @foreach (var prod in ViewBag.outproducts)
+                                        {
+                                            <p>Product Name :  @prod.ProductName </p>
+                                            <p>Product Qty :  @prod.Quantity </p>
+                                            <hr />
+                                        }
+                                    </div>
+                                    <div class="col-6">
+                                        <h2>Remaining Stock</h2>
+                                        <p style="font-weight: bold">In Stock: @ViewBag.totalIn </p>
+                                        <p style="font-weight: bold">Out Stock: @ViewBag.totalOut </p>
+                                        <p style="font-weight: bold">Stock Balance: @ViewBag.res </p>
+                                        <hr />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

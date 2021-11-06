@@ -1,0 +1,51 @@
+﻿@model SamaERP.Models.WarCustomerType
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container body">
+    <div class="main_container">
+        <div class="right_col" role="main">
+            <div>
+                <div class="x_panel bg-transparent">
+                    <div class="x_content">
+                        <h5 class="p-md-2">Add New Customer type.</h5>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-4">
+                                <form asp-action="Create">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <div class="form-group input-group-sm">
+                                        <label asp-for="CustomerType" class="control-label">Customer Type</label>
+                                        <input asp-for="CustomerType" class="form-control" />
+                                        <span asp-validation-for="CustomerType" class="text-danger">@ViewBag.exist_err</span>
+                                    </div>
+                                    <div class="form-group input-group-sm">
+                                        <label asp-for="CustomerTypeDescription" class="control-label">Description</label>
+                                        <input asp-for="CustomerTypeDescription" class="form-control" />
+                                        <span asp-validation-for="CustomerTypeDescription" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group input-group-sm">
+                                        <input type="submit" value="Save Type" class="btn btn-primary btn-sm" />
+                                        <a class="btn btn-secondary btn-sm" asp-action="Index">Back to List</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div>
+                            <a asp-action="Index">Back to List</a>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

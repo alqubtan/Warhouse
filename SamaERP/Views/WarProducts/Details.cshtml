@@ -1,0 +1,67 @@
+﻿@model SamaERP.Models.WarProduct
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container body">
+    <div class="main_container">
+        <div class="right_col" role="main">
+            <div>
+                <div class="x_panel bg-transparent">
+                    <div class="x_content">
+                        <div>
+                            <h4>@Html.DisplayFor(model => model.ProductName)</h4>
+                            <hr />
+                            <dl class="row">
+                                <dt class="col-sm-2">
+                                    Product Name
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.ProductName)
+                                </dd>
+                                <dt class="col-sm-2">
+                                    Product Description
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.ProductDescription)
+                                </dd>
+                                <dt class="col-sm-2">
+                                    Product Type
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.ProductType)
+                                </dd>
+                                <dt class="col-sm-2">
+                                    Measure Unit
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.Prod_MeasureUnit)
+                                </dd>
+                                <dt class="col-sm-2">
+                                    Has Expire Date
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.HasExpireDate)
+                                </dd>
+                                <dt class="col-sm-2">
+                                    Expire Date
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.ProductExpireDate)
+                                </dd>
+                            </dl>
+                        </div>
+                        <div>
+                            <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+                            <a asp-action="Index">Back to List</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

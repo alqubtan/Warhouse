@@ -1,0 +1,116 @@
+﻿@model SamaERP.Models.WarBranch
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+
+<div class="container body">
+    <div class="main_container">
+        <div class="right_col" role="main">
+            <div>
+                <div class="x_panel bg-transparent">
+                    <div class="x_content">
+                        <h5 class="p-md-2">Add New Branch.</h5>
+                        <div class="col-12">
+                            <form id="demo-form2" asp-action="Create" data-parsley-validate class="form-horizontal form-label-left">
+
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-row">
+                                    <div class="form-group row input-group-sm col-lg-6">
+                                        <label class="control-label">Branch Name</label>
+                                        <input asp-for="BranchName" class="form-control" />
+
+                                    </div>
+                                    <div class="form-group row input-group-sm col-lg-6">
+                                        <label class="control-label">Branch Address</label>
+                                        <input asp-for="BranchAdresss" class="form-control" />
+                                        <span asp-validation-for="BranchAdresss" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <!-- NAME VALIDATION GOES HERE CUSE THE ELEMENT SHIFTING-->
+                                <span asp-validation-for="BranchName" class="text-danger">@ViewBag.exist_err</span>
+
+                                <div class="form-row">
+                                    <div class="form-group row input-group-sm col-lg-6">
+                                        <label class="control-label">Branch Country</label>
+                                        <input asp-for="BranchCountry" class="form-control" />
+                                        <span asp-validation-for="BranchCountry" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="form-group col input-group-sm col-lg-6">
+                                        <label class="control-label">Branch City</label>
+                                        <input asp-for="BranchCity" class="form-control" />
+                                        <span asp-validation-for="BranchCity" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group input-group-md col-md-5 pt-md-2">
+
+                                    <input type="submit" value="Save Branch" class="btn btn-primary btn-sm" />
+                                    <a class="btn btn-secondary btn-sm" asp-action="Index">Back to List</a>
+                                </div>
+
+                            </form>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+@*<h1>Create</h1>
+
+    <h4>WarBranch</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="BranchName" class="control-label"></label>
+                    <input asp-for="BranchName" class="form-control" />
+                    <span asp-validation-for="BranchName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BranchAdresss" class="control-label"></label>
+                    <input asp-for="BranchAdresss" class="form-control" />
+                    <span asp-validation-for="BranchAdresss" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BranchCity" class="control-label"></label>
+                    <input asp-for="BranchCity" class="form-control" />
+                    <span asp-validation-for="BranchCity" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BranchCountry" class="control-label"></label>
+                    <input asp-for="BranchCountry" class="form-control" />
+                    <span asp-validation-for="BranchCountry" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>*@
+
+@*<div>
+        <a asp-action="Index">Back to List</a>
+    </div>*@
+

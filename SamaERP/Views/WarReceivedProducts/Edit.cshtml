@@ -1,0 +1,129 @@
+﻿@model SamaERP.Models.WarReceivedProduct
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container body">
+    <div class="main_container">
+        <div class="right_col" role="main">
+            <div>
+                <div class="x_panel bg-transparent">
+                    <div class="x_content">
+                        <h4>@Html.DisplayFor(model => model.ProductName)</h4>
+                        <hr />
+                        <div class="row">
+                            <div class="col-12">
+                                <form asp-action="Edit">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <input type="hidden" asp-for="ID" />
+
+                                    <div class="form-row">
+                                        <div class="form-group col-6">
+                                            <label asp-for="ProductName" class="control-label"></label>
+                                            <input asp-for="ProductName" class="form-control" />
+                                            <span asp-validation-for="ProductName" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label asp-for="SNumber" class="control-label"></label>
+                                            <input asp-for="SNumber" class="form-control" />
+                                            <span asp-validation-for="SNumber" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-4">
+                                            <label asp-for="ProductBarcode" class="control-label"></label>
+                                            <input asp-for="ProductBarcode" class="form-control" />
+                                            <span asp-validation-for="ProductBarcode" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-4">
+                                            <label asp-for="ProductSupplier" class="control-label"></label>
+                                            @Html.DropDownList("ProductSupplier", new SelectList(ViewBag.suppliers, "SupplierName", "SupplierName"))
+                                            <span asp-validation-for="ProductSupplier" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-4">
+                                            <label asp-for="ProductUnit" class="control-label"></label>
+                                            <input asp-for="ProductUnit" class="form-control" />
+                                            <span asp-validation-for="ProductUnit" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-4">
+                                            <label asp-for="ProductQty" class="control-label"></label>
+                                            <input asp-for="ProductQty" class="form-control" />
+                                            <span asp-validation-for="ProductQty" class="text-danger"></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-4">
+                                            <label asp-for="BranchName" class="control-label"></label>
+                                            @Html.DropDownList("BranchName", new SelectList(ViewBag.branches, "BranchName", "BranchName"))
+                                            <span asp-validation-for="BranchName" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-4">
+                                            <label asp-for="WarehouseName" class="control-label"></label>
+                                            @Html.DropDownList("WarehouseName", new SelectList(ViewBag.warehouses, "WarhouseName", "WarhouseName"))
+                                            <span asp-validation-for="WarehouseName" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-4">
+                                            <label asp-for="InvoiceNumber" class="control-label"></label>
+                                            <input asp-for="InvoiceNumber" class="form-control" />
+                                            <span asp-validation-for="InvoiceNumber" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-4">
+                                            <label asp-for="ProductExpireDate" class="control-label"></label>
+                                            <input placeholder="Expire Date" type="text" asp-for="ProductExpireDate" id="datetimepicker1" />
+                                            <span asp-validation-for="ProductExpireDate" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-4">
+                                            <label asp-for="RecivedDate" class="control-label"></label>
+                                            <input placeholder="Recived Date" type="text" asp-for="RecivedDate" id="datetimepicker2" />
+                                            <span asp-validation-for="RecivedDate" class="text-danger"></span>
+                                        </div>
+
+                                        <div class="form-group col-4">
+                                            <label asp-for="InvoiceDate" class="control-label"></label>
+                                            <input placeholder="Invoice Date" type="text" asp-for="InvoiceDate" id="datetimepicker3" />
+                                            <span asp-validation-for="InvoiceDate" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="Save" class="btn btn-primary" />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div>
+                            <a asp-action="Index">Back to List</a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+    $(document).ready(function () {
+        $("#datetimepicker1,#datetimepicker2, #datetimepicker3").datepicker({
+            isRTL: false,
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+            language: 'en'
+        });
+    });
+    </script>
+}

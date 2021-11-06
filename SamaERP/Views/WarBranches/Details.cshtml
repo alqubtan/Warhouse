@@ -1,0 +1,117 @@
+﻿@model SamaERP.Models.WarBranch
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container body">
+    <div class="main_container">
+        <div class="right_col" role="main">
+            <div>
+                <div class="x_panel bg-transparent">
+                    <div class="x_content">
+                        <div>
+                            <h4>@Html.DisplayFor(model => model.BranchName)</h4>
+                            <hr />
+                            <dl class="row">
+                                <dt class="col-sm-2">
+                                    Branch Name
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.BranchName)
+                                </dd>
+                                <dt class="col-sm-2">
+                                    Branch Adresss
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.BranchAdresss)
+                                </dd>
+                                <dt class="col-sm-2">
+                                    Branch City
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.BranchCity)
+                                </dd>
+                                <dt class="col-sm-2">
+                                    Branch Country
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.BranchCountry)
+                                </dd>
+                            </dl>
+                        </div>
+                        <h4>@Html.DisplayFor(model => model.BranchName) Warehouses</h4>
+
+                        @if (ViewBag.warehouses.Count > 0)
+                        {
+                            <table id="datatable" class="table table-sm table-striped table-bordered dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="datatable_info">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Warehouse Name
+                                        </th>
+                                        <th>
+                                            Warehouse Description
+                                        </th>
+                                        <th>
+                                            Warehouse Branch
+                                        </th>
+                                        <th>
+                                            Warehouse Address
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in ViewBag.warehouses)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @item.WarhouseName
+                                            </td>
+                                            <td>
+                                                @item.WarehouseDescription
+                                            </td>
+                                            <td>
+                                                @item.WarehouseBranch
+                                            </td>
+                                            <td>
+                                                @item.WarehouseAddress
+                                            </td>
+                                            <td>
+                                                <a asp-controller="Warehouses" asp-action="Edit" asp-route-id="@item.Id" title="Edit">
+                                                    <i class="glyphicon glyphicon-pencil text-primary"> </i>
+                                                </a>
+                                                <a asp-controller="Warehouses" asp-action="Details" asp-route-id="@item.Id" title="Details" class="m-3">
+                                                    <i class="glyphicon glyphicon-info-sign text-info"></i>
+                                                </a>
+                                                <a asp-controller="Warehouses" asp-action="Delete" asp-route-id="@item.Id" title="Delete">
+                                                    <i class="glyphicon glyphicon-remove text-danger"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                        else
+                        {
+                            <div  class="alert alert-dark w-50" role="alert">
+                                No warehouse found.
+                            </div>
+                        }
+
+
+                        <div>
+                            <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+                            <a asp-action="Index">Back to List</a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

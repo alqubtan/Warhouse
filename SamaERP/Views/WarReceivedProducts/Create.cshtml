@@ -1,0 +1,156 @@
+﻿@model SamaERP.Models.WarReceivedProduct
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container body">
+    <div class="main_container">
+        <div class="right_col" role="main">
+            <div>
+                <div class="x_panel bg-transparent">
+                    <div class="x_content">
+                        <h5 class="p-md-2">Add New Recived Product.</h5>
+                        <div class="row">
+                            <div class="col-12">
+                                <form asp-action="Create">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <div class="form-row">
+                                        <div class="form-group input-group-sm col-6">
+                                            <label asp-for="ProductName" class="control-label">Product Name</label>
+                                            <select class="bg-transparent form-control" asp-for="ProductName" onchange="getUnit(this.value)" asp-items="ViewBag.products ?? new List<SelectListItem>();">
+                                                <option value="value">Choose product</option>
+                                            </select>
+                                            <span asp-validation-for="ProductName" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group input-group-sm col-6">
+                                            <label asp-for="SNumber" class="control-label">Serial Number</label>
+                                            <input asp-for="SNumber" class="form-control" />
+                                            <span asp-validation-for="SNumber" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group input-group-sm col-6">
+                                            <label asp-for="ProductBarcode" class="control-label">Barcode</label>
+                                            <input asp-for="ProductBarcode" class="form-control" />
+                                            <span asp-validation-for="ProductBarcode" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group input-group-sm col-6">
+                                            <label asp-for="ProductSupplier" class="control-label"> Product Supplier</label>
+
+                                            <select class="bg-transparent form-control" asp-for="ProductSupplier" asp-items="ViewBag.suppliers ?? new List<SelectListItem>();">
+                                                <option value="value">Choose supplier</option>
+                                            </select>
+
+                                            <span asp-validation-for="ProductSupplier" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group input-group-sm col-6">
+                                            <label asp-for="ProductUnit" class="control-label">Unit</label>
+                                            <input readonly asp-for="ProductUnit" id="prodUnit2" class="form-control" />
+                                            <span asp-validation-for="ProductUnit" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group input-group-sm col-6">
+                                            <label asp-for="ProductQty" class="control-label">Quantity</label>
+                                            <input asp-for="ProductQty" class="form-control" />
+                                            <span asp-validation-for="ProductQty" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group input-group-sm col-4">
+                                            <label asp-for="BranchName" class="control-label">Branch</label>
+
+                                            <select class="bg-transparent form-control" asp-for="BranchName" asp-items="ViewBag.branches ?? new List<SelectListItem>();">
+                                                <option value="value">Choose branch</option>
+                                            </select>
+
+                                            <span asp-validation-for="BranchName" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group input-group-sm col-4">
+                                            <label asp-for="WarehouseName" class="control-label">Warehouse</label>
+                                            <select class="bg-transparent form-control" asp-for="WarehouseName" asp-items="ViewBag.warehouses ?? new List<SelectListItem>();">
+                                                <option value="value">Choose Warehouse</option>
+                                            </select>
+                                            <span asp-validation-for="WarehouseName" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group input-group-sm col-4">
+                                            <label asp-for="InvoiceNumber" class="control-label">Invoice Number</label>
+                                            <input asp-for="InvoiceNumber" class="form-control" />
+                                            <span asp-validation-for="InvoiceNumber" class="text-danger"></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group input-group-sm col-4 mt-4">
+                                            <label asp-for="RecivedDate" class="control-label">Recived Date</label>
+                                            <input placeholder="Choose Recive Date" autocomplete="off" type="text" asp-for="RecivedDate" id="datetimepicker1" />
+                                            <span asp-validation-for="RecivedDate" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group input-group-sm col-4 mt-4">
+                                            <label asp-for="ProductExpireDate" class="control-label">Expire Date</label>
+                                            <input placeholder="Choose Expire Date" type="text" autocomplete="off" asp-for="ProductExpireDate" id="datetimepicker2" />
+                                            <span asp-validation-for="ProductExpireDate" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group input-group-sm col-4 mt-4">
+                                            <label asp-for="InvoiceDate" class="control-label">InvoiceDate</label>
+                                            <input placeholder="Choose Invoice Date" type="text" autocomplete="off" asp-for="InvoiceDate" id="datetimepicker3" />
+                                            <span asp-validation-for="InvoiceDate" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group input-group-sm">
+                                        <input type="submit" value="Save" class="btn btn-primary btn-sm" />
+                                        <a class="btn btn-secondary btn-sm" asp-action="Index">Back to List</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+}
+
+@section Scripts {
+    <script>
+    $(document).ready(function () {
+        $("#datetimepicker1,#datetimepicker2, #datetimepicker3").datepicker({
+            isRTL: false,
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+            language: 'en'
+        });
+    });
+    function getUnit(val) {
+         $.ajax({
+            type: "POST",
+            url: '@Url.Action("GetUnit")',
+             data: { productName:val },
+            dataType: "json",
+            success: function (data) {
+                $("#prodUnit2").val(data);
+            }
+            });
+    }
+
+
+
+
+
+    </script>
+
+}
+

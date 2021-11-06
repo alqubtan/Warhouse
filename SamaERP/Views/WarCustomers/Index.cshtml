@@ -1,0 +1,110 @@
+﻿@model IEnumerable<SamaERP.Models.WarCustomer>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container body">
+    <div class="main_container">
+        <div class="right_col" role="main">
+            <div>
+                <div class="x_panel bg-transparent">
+                    <div class="x_content">
+                        <p>
+                            <a class="btn btn-success btn-sm" asp-controller="WarCustomers" asp-action="Create">New Customer</a>
+                        </p>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table id="datatable" class="table table-sm table-striped table-bordered dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="datatable_info">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Customer Name
+                                            </th>
+                                            <th>
+                                                Customer Type
+                                            </th>
+                                            <th>
+                                                Customer Department
+                                            </th>
+                                            <th>
+                                                Customer Description
+                                            </th>
+                                            <th>
+                                                Customer PhoneNo.
+                                            </th>
+                                            <th>
+                                                Customer Email
+                                            </th>
+                                            <th>
+                                                Customer Address
+                                            </th>
+                                            <th>
+                                                Customer Country
+                                            </th>
+                                            <th>
+                                                Customer City
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td colspan="1">
+                                                    @Html.DisplayFor(modelItem => item.CustomerName)
+                                                </td>
+                                                <td colspan="1">
+                                                    @Html.DisplayFor(modelItem => item.CustomerType)
+                                                </td>
+                                                <td colspan="1">
+                                                    @Html.DisplayFor(modelItem => item.CustomerDepartment)
+                                                </td>
+                                                <td colspan="1">
+                                                    @Html.DisplayFor(modelItem => item.CustomerDecription)
+                                                </td>
+                                                <td colspan="1">
+                                                    @Html.DisplayFor(modelItem => item.CustomerPhoneNo)
+                                                </td>
+                                                <td colspan="1">
+                                                    @Html.DisplayFor(modelItem => item.CustomerEmail)
+                                                </td>
+                                                <td colspan="1">
+                                                    @Html.DisplayFor(modelItem => item.CustomerAddress)
+                                                </td>
+                                                <td colspan="1">
+                                                    @Html.DisplayFor(modelItem => item.CustomerCountry)
+                                                </td>
+                                                <td colspan="1">
+                                                    @Html.DisplayFor(modelItem => item.CustomerCity)
+                                                </td>
+                                                <td colspan="3">
+                                                    <a asp-action="Edit" asp-route-id="@item.Id" title="Edit">
+                                                        <i class="glyphicon glyphicon-pencil text-primary"> </i>
+                                                    </a>
+                                                    <a asp-action="Details" asp-route-id="@item.Id" title="Details" >
+                                                        <i class="glyphicon glyphicon-info-sign text-info"></i>
+                                                    </a>
+                                                    <a asp-action="Delete" asp-route-id="@item.Id" title="Delete">
+                                                        <i class="glyphicon glyphicon-remove text-danger"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+
+

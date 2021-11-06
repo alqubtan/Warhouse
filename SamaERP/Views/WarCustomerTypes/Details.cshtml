@@ -1,0 +1,45 @@
+﻿@model SamaERP.Models.WarCustomerType
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container body">
+    <div class="main_container">
+        <div class="right_col" role="main">
+            <div>
+                <div class="x_panel bg-transparent">
+                    <div class="x_content">
+                        <div>
+                            <h4>@Html.DisplayFor(model => model.CustomerType)</h4>
+                            <hr />
+                            <dl class="row">
+                                <dt class="col-sm-2">
+                                    Customer Type
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.CustomerType)
+                                </dd>
+                            </dl>
+                            <dl class="row">
+                                <dt class="col-sm-2">
+                                    Description
+                                </dt>
+                                <dd class="col-sm-10">
+                                    @Html.DisplayFor(model => model.CustomerTypeDescription)
+                                </dd>
+                            </dl>
+                        </div>
+                        <div>
+                            <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+                            <a asp-action="Index">Back to List</a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

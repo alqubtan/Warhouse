@@ -1,0 +1,148 @@
+﻿@model SamaERP.Models.WarDeliverd
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container body">
+    <div class="main_container">
+        <div class="right_col" role="main">
+            <div>
+                <div class="x_panel bg-transparent">
+                    <div class="x_content">
+                        <h4>Add new Deliver</h4>
+                        <hr />
+                        <div class="row">
+                            <div class="col-12">
+
+                                <form asp-action="Create">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <div class="form-row">
+                                        <div class="form-group input-group-sm col-6">
+                                            <label asp-for="ProductName" class="control-label"></label>
+                                            <select onchange="getUnit(this.value)" class="form-control bg-transparent" asp-for="ProductName" asp-items="ViewBag.products ?? new List<SelectListItem>();">
+                                                <option value="">Choose Product</option>
+                                            </select>
+                                            <span asp-validation-for="ProductName" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group input-group-sm col-6">
+                                            <label asp-for="CustomerName" class="control-label"></label>
+                                            <select class="form-control bg-transparent" asp-for="CustomerName" asp-items="ViewBag.customers ?? new List<SelectListItem>();">
+                                                <option value="">Choose Customer</option>
+                                            </select>
+                                            <span asp-validation-for="CustomerName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group input-group-sm col-6">
+                                            <label asp-for="SerialNo" class="control-label"></label>
+                                            <input asp-for="SerialNo" class="form-control" />
+                                            <span asp-validation-for="SerialNo" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group input-group-sm col-6">
+                                            <label asp-for="Barcode" class="control-label"></label>
+                                            <input asp-for="Barcode" class="form-control" />
+                                            <span asp-validation-for="Barcode" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group input-group-sm col-6">
+                                            <label asp-for="Unit" class="control-label"></label>
+                                            <input readonly asp-for="Unit" id="prodUnit2" class="form-control" />
+                                            <span asp-validation-for="Unit" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group input-group-sm col-6">
+                                            <label asp-for="Quantity" class="control-label"></label>
+                                            <input asp-for="Quantity" class="form-control" />
+                                            <span asp-validation-for="Quantity" class="text-danger">@ViewBag.notEnough</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group input-group-sm col-6">
+                                            <label asp-for="BranchName" class="control-label"></label>
+                                            <select class="form-control bg-transparent" asp-for="BranchName" asp-items="ViewBag.branches ?? new List<SelectListItem>();">
+                                                <option value="">Choose branch</option>
+                                            </select>
+                                            <span asp-validation-for="BranchName" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group input-group-sm col-6">
+                                            <label asp-for="WarehouseName" class="control-label"></label>
+                                            <select class="form-control bg-transparent" asp-for="WarehouseName" asp-items="ViewBag.warehouses ?? new List<SelectListItem>();">
+                                                <option value="">Choose warehouse</option>
+                                            </select>
+                                            <span asp-validation-for="WarehouseName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group input-group-sm col-6">
+                                            <label asp-for="DeliverDate" class="control-label"></label>
+                                            <input placeholder="Choose Deliver Date" type="text" autocomplete="off" asp-for="DeliverDate" id="datetimepicker1" />
+                                            <span asp-validation-for="DeliverDate" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group input-group-sm col-6">
+                                            <label asp-for="OrderDate" class="control-label"></label>
+                                            <input placeholder="Choose Order Date" type="text" autocomplete="off" asp-for="OrderDate" id="datetimepicker2" />
+                                            <span asp-validation-for="OrderDate" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group input-group-sm">
+                                        <label asp-for="OrderNumber" class="control-label"></label>
+                                        <input asp-for="OrderNumber" class="form-control" />
+                                        <span asp-validation-for="OrderNumber" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group input-group-sm">
+
+                                        <input type="hidden" asp-for="ActiveOrNot" value="1" class="form-control" />
+
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="Save to Pending" class="btn btn-primary btn-sm" />
+                                        <a class="btn btn-secondary btn-sm" asp-action="Index">Back to List</a>
+                                    </div>
+                                </form>
+                                <p>@ViewBag.notExistProduct</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <a asp-action="Index">Back to List</a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+<script>
+    $(document).ready(function () {
+        $("#datetimepicker1,#datetimepicker2").datepicker({
+            isRTL: false,
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+            language: 'en'
+        });
+    });
+        function getUnit(val) {
+         $.ajax({
+            type: "POST",
+            url: '@Url.Action("GetUnit")',
+             data: { productName:val },
+            dataType: "json",
+            success: function (data) {
+                $("#prodUnit2").val(data);
+            }
+            });
+    }
+
+
+
+
+</script>
+
+}

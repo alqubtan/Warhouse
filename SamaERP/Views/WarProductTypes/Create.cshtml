@@ -1,0 +1,49 @@
+﻿@model SamaERP.Models.WarProductType
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container body">
+    <div class="main_container">
+        <div class="right_col" role="main">
+            <div>
+                <div class="x_panel bg-transparent">
+                    <div class="x_content">
+                        <h5 class="p-md-2">Add New Product.</h5>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-4">
+                                <form asp-action="Create">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <div class="form-group input-group-sm">
+                                        <label asp-for="productType" class="control-label"></label>
+                                        <input asp-for="productType" class="form-control" />
+                                        <span asp-validation-for="productType" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group input-group-sm">
+                                        <label asp-for="productTypeDescription" class="control-label"></label>
+                                        <input asp-for="productTypeDescription" class="form-control" />
+                                        <span asp-validation-for="productTypeDescription" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="Save type" class="btn btn-primary btn-sm" />
+                                        <a class="btn btn-secondary btn-sm" asp-action="Index">Back to List</a>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div>
+                            <a asp-action="Index">Back to List</a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

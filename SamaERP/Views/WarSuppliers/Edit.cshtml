@@ -1,0 +1,92 @@
+﻿@model SamaERP.Models.WarSupplier
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container body">
+    <div class="main_container">
+        <div class="right_col" role="main">
+            <div>
+                <div class="x_panel bg-transparent">
+                    <div class="x_content">
+                        <h4>@Html.DisplayFor(model => model.SupplierName)</h4>
+                        <hr />
+                        <div class="form-row">
+                            <div class="col-12">
+                                <form asp-action="Edit">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <input type="hidden" asp-for="Id" />
+
+                                    <div class="form-row">
+                                        <div class="form-group col-6">
+                                            <label class="control-label">Supplier Name</label>
+                                            <input asp-for="SupplierName" class="form-control" />
+                                            <span asp-validation-for="SupplierName" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label class="control-label">Supplier Type</label>
+                                            <input asp-for="SupplierType" class="form-control" />
+                                            <span asp-validation-for="SupplierType" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label">Supplier Description</label>
+                                        <input asp-for="SupplierDescription" class="form-control" />
+                                        <span asp-validation-for="SupplierDescription" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-6">
+                                            <label class="control-label">Supplier Phone No.</label>
+                                            <input asp-for="SupplierPhoneNo" class="form-control" />
+                                            <span asp-validation-for="SupplierPhoneNo" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-6">
+                                            <label class="control-label">SupplierEmail</label>
+                                            <input asp-for="SupplierEmail" class="form-control" />
+                                            <span asp-validation-for="SupplierEmail" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group col-6">
+                                            <label class="control-label">Supplier Address</label>
+                                            <input asp-for="SupplierAddress" class="form-control" />
+                                            <span asp-validation-for="SupplierAddress" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-3">
+                                            <label class="control-label">Supplier Country</label>
+                                            <input asp-for="SupplierCountry" class="form-control" />
+                                            <span asp-validation-for="SupplierCountry" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group col-3">
+                                            <label class="control-label">Supplier City</label>
+                                            <input asp-for="SupplierCity" class="form-control" />
+                                            <span asp-validation-for="SupplierCity" class="text-danger"></span>
+                                        </div>
+                                    </div>
+  
+                                    
+                                    <div class="form-group">
+                                        <input type="submit" value="Save" class="btn btn-primary" />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div>
+                            <a asp-action="Index">Back to List</a>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

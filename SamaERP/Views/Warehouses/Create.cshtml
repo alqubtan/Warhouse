@@ -1,0 +1,55 @@
+﻿@model SamaERP.Models.Warehouse
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container body">
+    <div class="main_container">
+        <div class="right_col" role="main">
+            <div>
+                <div class="x_panel bg-transparent">
+                    <div class="x_content">
+                        <h5 class="p-md-2">Add New Warehouse.</h5>
+                        <div class="col-md-6">
+                            <form asp-action="Create">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-group row input-group-sm">
+                                    <label class="control-label">Warehouse Name</label>
+                                    <input asp-for="WarhouseName" class="form-control" />
+                                    <span asp-validation-for="WarhouseName" class="text-danger">@ViewBag.exist_err</span>
+                                </div>
+                                <div class="form-group row input-group-sm">
+                                    <label class="control-label">Warehouse Description</label>
+                                    <input asp-for="WarehouseDescription" class="form-control" />
+                                    <span asp-validation-for="WarehouseDescription" class="text-danger"></span>
+                                </div>
+                                <div class="form-group row input-group-sm">
+                                    <label class="control-label">Warehouse Branch</label>
+                                    <select class="bg-transparent form-control" asp-for="WarehouseBranch" asp-items="ViewBag.branches ?? new List<SelectListItem>();">
+                                        <option value="value">Choose branch</option>
+                                    </select>
+                                    <span asp-validation-for="WarehouseBranch" class="text-danger"></span>
+                                </div>
+                                <div class="form-group row input-group-sm">
+                                    <label class="control-label">Warehouse Address</label>
+                                    <input asp-for="WarehouseAddress" class="form-control" />
+                                    <span asp-validation-for="WarehouseAddress" class="text-danger"></span>
+                                </div>
+                                <div class="input-group-sm row pt-md-2">
+                                    <input type="submit" value="Save Warehouse" class="btn btn-primary btn-sm" />
+                                    <a class="btn btn-secondary btn-sm" asp-action="Index">Back to List</a>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
