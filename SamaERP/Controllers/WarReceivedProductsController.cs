@@ -81,8 +81,19 @@ namespace SamaERP.Controllers
        
         public async Task<IActionResult> Create([Bind("ID,ProductName,SNumber,ProductBarcode,ProductSupplier,ProductUnit,ProductQty,RecivedPrice,TotalPrice,BranchName,WarehouseName,ProductExpireDate,RecivedDate,InvoiceNumber,InvoiceDate")] WarReceivedProduct warReceivedProduct)
         {
+            // get, products , branches , warehouses,  suppliers AS DROPDOWN LISTS
+
+            var products = _context.WarProduct.ToList();
+            ViewBag.products = new SelectList(products, "ProductName", "ProductName");
+            var suppliers = _context.WarSupplier.ToList();
+            ViewBag.suppliers = new SelectList(suppliers, "SupplierName", "SupplierName");
+            var branches = _context.WarBranch.ToList();
+            ViewBag.branches = new SelectList(branches, "BranchName", "BranchName");
+            var warehouses = _context.Warehouse.ToList();
+            ViewBag.warehouses = new SelectList(warehouses, "WarhouseName", "WarhouseName");
             if (ModelState.IsValid)
             {
+                
                 //var new_name = warReceivedProduct.ProductName.Trim();
                 //var isExist = _context.WarReceivedProduct.Any(o => o.ProductName == new_name);
 

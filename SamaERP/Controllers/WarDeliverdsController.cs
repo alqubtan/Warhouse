@@ -76,6 +76,14 @@ namespace SamaERP.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,ProductName, CustomerName,SerialNo,Barcode,Unit,Quantity,BranchName,WarehouseName,DeliverDate,OrderDate,OrderNumber,ActiveOrNot")] WarDeliverd warDeliverd)
         {
+            var products = _context.WarReceivedProduct.ToList();
+            var warehouses = _context.Warehouse.ToList();
+            var branches = _context.WarBranch.ToList();
+            var customers = _context.WarCustomer.ToList();
+            ViewBag.products = new SelectList(products, "ProductName", "ProductName");
+            ViewBag.warehouses = new SelectList(warehouses, "WarhouseName", "WarhouseName");
+            ViewBag.branches = new SelectList(branches, "BranchName", "BranchName");
+            ViewBag.customers = new SelectList(customers, "CustomerName", "CustomerName");
             if (ModelState.IsValid)
             {
                 // check if there is avilable amount for this request

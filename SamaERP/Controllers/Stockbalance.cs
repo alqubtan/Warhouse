@@ -23,7 +23,7 @@ namespace SamaERP.Controllers
             ViewBag.inProducts = inproducts;
             ViewBag.outproducts = outproducts;
 
-             ViewBag.totalIn = inproducts.Sum(o => o.ProductQty);
+            ViewBag.totalIn = inproducts.Sum(o => o.ProductQty);
             ViewBag.totalOut = outproducts.Sum(o => o.Quantity);
             ViewBag.res = ViewBag.totalIn - ViewBag.totalOut;
 

@@ -46,6 +46,9 @@ namespace SamaERP.Controllers
         // GET: WarSuppliers/Create
         public IActionResult Create()
         {
+            // Get suppliers type as dropdown
+            var supplierTypes = _context.WarSupplierType.ToList();
+            ViewBag.suppierTypes = new SelectList(supplierTypes, "SupplierType", "SupplierType");
             return View();
         }
 
@@ -56,8 +59,14 @@ namespace SamaERP.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,SupplierName,SupplierType,SupplierDescription,SupplierPhoneNo,SupplierEmail,SupplierAddress,SupplierCountry,SupplierCity")] WarSupplier warSupplier)
         {
+            // Get suppliers type as dropdown
+            var supplierTypes = _context.WarSupplierType.ToList();
+            ViewBag.suppierTypes = new SelectList(supplierTypes, "SupplierType", "SupplierType");
+
             if (ModelState.IsValid)
             {
+               
+                // check if its already exist
                 var new_name = warSupplier.SupplierName.Trim();
                 var isExist = _context.WarSupplier.Any(o => o.SupplierName == new_name);
 

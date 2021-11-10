@@ -63,6 +63,9 @@ namespace SamaERP.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,WarhouseName,WarehouseDescription, WarehouseBranch ,WarehouseAddress")] Warehouse warehouse)
         {
+            // Get all branches for warehouse to make list
+            var branches = _context.WarBranch.ToList();
+            ViewBag.branches = new SelectList(branches, "BranchName", "BranchName");
             if (ModelState.IsValid)
             {
                 var new_name = warehouse.WarhouseName.Trim();

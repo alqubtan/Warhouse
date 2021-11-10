@@ -59,8 +59,12 @@ namespace SamaERP.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,ProductName,ProductDescription,ProductType,Prod_MeasureUnit,HasExpireDate,ProductExpireDate")] WarProduct warProduct)
         {
+            // get all projects types
+            var productTypes = _context.WarProductType.ToList();
+            ViewBag.productTypes = new SelectList(productTypes, "productType", "productType");
             if (ModelState.IsValid)
             {
+               
                 // check if product name is already exist
                 var new_name = warProduct.ProductName.Trim();
                 var isExist = _context.WarProduct.Any(o => o.ProductName == new_name);

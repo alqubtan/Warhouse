@@ -17,32 +17,55 @@
                         <div class="container-fluid border-dark p-5">
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="col-6">
-                                        <h2>In Stock</h2>
-                                        @foreach (var prod in ViewBag.inProducts)
-                                        {
-                                            <p>Product Name :  @prod.ProductName </p>
-                                            <p>Product Qty :  @prod.ProductQty </p>
+
+                                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6">
+                                        <div class="tile-stats">
+                                            <div class="icon">
+                                                <i class="fa fa-sort-amount-desc"></i>
+                                            </div>
+                                            <h3>In stock</h3>
+                                            <div class="count">@ViewBag.totalIn</div>
                                             <hr />
-                                        }
+                                            @foreach (var prod in ViewBag.inProducts)
+                                            {
+                                                <p>Product Name :  @prod.ProductName </p>
+                                                <p>Product Qty :  @prod.ProductQty </p>
+                                                <hr />
+                                            }
+                                        </div>
                                     </div>
-                                    <div class="col-6">
-                                        <h2>Out Stock</h2>
-                                        @foreach (var prod in ViewBag.outproducts)
-                                        {
-                                            <p>Product Name :  @prod.ProductName </p>
-                                            <p>Product Qty :  @prod.Quantity </p>
+                                    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6">
+                                        <div class="tile-stats">
+                                            <div class="icon">
+                                                <i class="fa fa-truck"></i>
+                                            </div>
+                                            <h3>Out stock</h3>
+                                            <div class="count">@ViewBag.totalOut</div>
                                             <hr />
-                                        }
+                                            @foreach (var prod in ViewBag.outProducts)
+                                            {
+                                                <p>Product Name :  @prod.ProductName </p>
+                                                <p>Product Qty :  @prod.Quantity </p>
+                                                <hr />
+                                            }
+                                        </div>
                                     </div>
-                                    <div class="col-6">
-                                        <h2>Remaining Stock</h2>
-                                        <p style="font-weight: bold">In Stock: @ViewBag.totalIn </p>
-                                        <p style="font-weight: bold">Out Stock: @ViewBag.totalOut </p>
-                                        <p style="font-weight: bold">Stock Balance: @ViewBag.res </p>
-                                        <hr />
+                                    <div class="mt-4 ml-2 p-3 animated flipInY col-lg-3 col-md-3 col-sm-6 bg-secondary text-white">
+                                        <div class="tile-stats bg-transparent">
+                                            <div class="icon">
+                                                <i class="fa fa-area-chart"></i>
+                                            </div>
+                                            <h3>stocked</h3>
+                                            <div class="count">@ViewBag.res</div>
+                                            <hr />
+                                            <p>Reamining from recived products</p>
+                                            <hr />
+
+                                        </div>
                                     </div>
+
                                 </div>
+
                             </div>
                         </div>
                         

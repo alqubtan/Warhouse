@@ -58,6 +58,14 @@ namespace SamaERP.Controllers
         {
             if (ModelState.IsValid)
             {
+                var new_name = warProductType.productType.Trim();
+                var isExist = _context.WarProductType.Any(o => o.productType == new_name);
+
+                if (isExist)
+                {
+                    ViewBag.exist_err = "type already exist";
+                    return View();
+                }
                 warProductType.Id = Guid.NewGuid();
                 _context.Add(warProductType);
                 await _context.SaveChangesAsync();

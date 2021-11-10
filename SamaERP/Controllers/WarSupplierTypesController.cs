@@ -10,22 +10,22 @@ using SamaERP.Models;
 
 namespace SamaERP.Controllers
 {
-    public class WarCustomersController : Controller
+    public class WarSupplierTypesController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public WarCustomersController(ApplicationDbContext context)
+        public WarSupplierTypesController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: WarCustomers
+        // GET: WarSupplierTypes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.WarCustomer.ToListAsync());
+            return View(await _context.WarSupplierType.ToListAsync());
         }
 
-        // GET: WarCustomers/Details/5
+        // GET: WarSupplierTypes/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -33,56 +33,48 @@ namespace SamaERP.Controllers
                 return NotFound();
             }
 
-            var warCustomer = await _context.WarCustomer
+            var warSupplierType = await _context.WarSupplierType
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (warCustomer == null)
+            if (warSupplierType == null)
             {
                 return NotFound();
             }
 
-            return View(warCustomer);
+            return View(warSupplierType);
         }
 
-        // GET: WarCustomers/Create
+        // GET: WarSupplierTypes/Create
         public IActionResult Create()
         {
-            // get all customers types
-            var customerTypes = _context.WarCustomerType.ToList();
-
-            ViewBag.customerTypes = new SelectList(customerTypes, "CustomerType", "CustomerType");
             return View();
         }
 
-        // POST: WarCustomers/Create
+        // POST: WarSupplierTypes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CustomerName,CustomerType,CustomerDepartment,CustomerDecription,CustomerPhoneNo,CustomerEmail,CustomerAddress,CustomerCountry,CustomerCity")] WarCustomer warCustomer)
+        public async Task<IActionResult> Create([Bind("Id,SupplierType,SupplierDescription")] WarSupplierType warSupplierType)
         {
-            // get all customers types
-            var customerTypes = _context.WarCustomerType.ToList();
-            ViewBag.customerTypes = new SelectList(customerTypes, "CustomerType", "CustomerType");
-
             if (ModelState.IsValid)
             {
-                var new_name = warCustomer.CustomerName.Trim();
-                var isExist = _context.WarCustomer.Any(o => o.CustomerName == new_name);
+                var new_name = warSupplierType.SupplierType.Trim();
+                var isExist = _context.WarSupplierType.Any(o => o.SupplierType == new_name);
 
                 if (isExist)
                 {
-                    ViewBag.exist_err = "customer already exist";
+                    ViewBag.exist_err = "type already exist";
                     return View();
                 }
-                warCustomer.Id = Guid.NewGuid();
-                _context.Add(warCustomer);
+                warSupplierType.Id = Guid.NewGuid();
+                _context.Add(warSupplierType);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(warCustomer);
+            return View(warSupplierType);
         }
 
-        // GET: WarCustomers/Edit/5
+        // GET: WarSupplierTypes/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -90,22 +82,22 @@ namespace SamaERP.Controllers
                 return NotFound();
             }
 
-            var warCustomer = await _context.WarCustomer.FindAsync(id);
-            if (warCustomer == null)
+            var warSupplierType = await _context.WarSupplierType.FindAsync(id);
+            if (warSupplierType == null)
             {
                 return NotFound();
             }
-            return View(warCustomer);
+            return View(warSupplierType);
         }
 
-        // POST: WarCustomers/Edit/5
+        // POST: WarSupplierTypes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,CustomerName,CustomerType,CustomerDepartment,CustomerDecription,CustomerPhoneNo,CustomerEmail,CustomerAddress,CustomerCountry,CustomerCity")] WarCustomer warCustomer)
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,SupplierType,SupplierDescription")] WarSupplierType warSupplierType)
         {
-            if (id != warCustomer.Id)
+            if (id != warSupplierType.Id)
             {
                 return NotFound();
             }
@@ -114,12 +106,12 @@ namespace SamaERP.Controllers
             {
                 try
                 {
-                    _context.Update(warCustomer);
+                    _context.Update(warSupplierType);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!WarCustomerExists(warCustomer.Id))
+                    if (!WarSupplierTypeExists(warSupplierType.Id))
                     {
                         return NotFound();
                     }
@@ -130,10 +122,10 @@ namespace SamaERP.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(warCustomer);
+            return View(warSupplierType);
         }
 
-        // GET: WarCustomers/Delete/5
+        // GET: WarSupplierTypes/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -141,30 +133,30 @@ namespace SamaERP.Controllers
                 return NotFound();
             }
 
-            var warCustomer = await _context.WarCustomer
+            var warSupplierType = await _context.WarSupplierType
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (warCustomer == null)
+            if (warSupplierType == null)
             {
                 return NotFound();
             }
 
-            return View(warCustomer);
+            return View(warSupplierType);
         }
 
-        // POST: WarCustomers/Delete/5
+        // POST: WarSupplierTypes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var warCustomer = await _context.WarCustomer.FindAsync(id);
-            _context.WarCustomer.Remove(warCustomer);
+            var warSupplierType = await _context.WarSupplierType.FindAsync(id);
+            _context.WarSupplierType.Remove(warSupplierType);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool WarCustomerExists(Guid id)
+        private bool WarSupplierTypeExists(Guid id)
         {
-            return _context.WarCustomer.Any(e => e.Id == id);
+            return _context.WarSupplierType.Any(e => e.Id == id);
         }
     }
 }

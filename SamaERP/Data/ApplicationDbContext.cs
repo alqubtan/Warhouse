@@ -24,6 +24,7 @@ namespace SamaERP.Data
         public DbSet<Models.WarReceivedProduct> WarReceivedProduct { get; set; }
         public DbSet<Models.WarCustomerType> WarCustomerType { get; set; }
         public DbSet<SamaERP.Models.WarDeliverd> WarDeliverd { get; set; }
+        public DbSet<SamaERP.Models.WarSupplierType> WarSupplierType { get; set; }
 
         
 

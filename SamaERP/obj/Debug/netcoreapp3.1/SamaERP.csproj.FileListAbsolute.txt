@@ -869,3 +869,8 @@ C:\Users\hp\Documents\SamaERP\SamaERP\obj\Debug\netcoreapp3.1\SamaERP.csproj.Cop
 C:\Users\hp\Documents\SamaERP\SamaERP\obj\Debug\netcoreapp3.1\SamaERP.dll
 C:\Users\hp\Documents\SamaERP\SamaERP\obj\Debug\netcoreapp3.1\SamaERP.pdb
 C:\Users\hp\Documents\SamaERP\SamaERP\obj\Debug\netcoreapp3.1\SamaERP.genruntimeconfig.cache
+C:\Users\hp\Documents\SamaERP\SamaERP\obj\Debug\netcoreapp3.1\Razor\Views\WarSupplierTypes\Create.cshtml.g.cs
+C:\Users\hp\Documents\SamaERP\SamaERP\obj\Debug\netcoreapp3.1\Razor\Views\WarSupplierTypes\Delete.cshtml.g.cs
+C:\Users\hp\Documents\SamaERP\SamaERP\obj\Debug\netcoreapp3.1\Razor\Views\WarSupplierTypes\Details.cshtml.g.cs
+C:\Users\hp\Documents\SamaERP\SamaERP\obj\Debug\netcoreapp3.1\Razor\Views\WarSupplierTypes\Edit.cshtml.g.cs
+C:\Users\hp\Documents\SamaERP\SamaERP\obj\Debug\netcoreapp3.1\Razor\Views\WarSupplierTypes\Index.cshtml.g.cs

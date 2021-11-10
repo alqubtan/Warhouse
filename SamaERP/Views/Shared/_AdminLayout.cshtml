@@ -82,6 +82,19 @@
                                     </ul>
                                 </li>
                                 <li>
+                                    <a><i class="fa fa-anchor"></i> Supplier Type <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li>
+
+                                            <a asp-action="Create" asp-controller="WarSupplierTypes">New Supplier Type</a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="Index" asp-controller="WarSuppliers">List of Suppliers Types</a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                                <li>
                                     <a><i class="fa fa-anchor"></i> Suppliers <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li>
@@ -173,7 +186,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a asp-controller="Stockbalance"><i class="fa fa-newspaper-o"></i> Stock Balance <span class="fa fa-chevron-down"></span></a>
+                                    <a asp-action="Index" asp-controller="Stockbalance"><i class="fa fa-newspaper-o"></i> Stock Balance <span class="fa fa-chevron-down"></span></a>
                                 </li>
                             </ul>
                         </div>
